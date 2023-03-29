@@ -1,0 +1,40 @@
+.Home {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+	padding: 5vh 5vw;
+}
+
+main {
+	display: grid;
+	margin: 1rem;
+	gap: 5vw;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Home h2 {
+	width: 400px;
+	font-size: 4rem;
+	font-family: "Playfair Display";
+	text-align: center;
+}
+
+.Home h2 span {
+	color: #ffa13f;
+}
+
+h4 {
+	font-family: "Playfair Display";
+	font-weight: 400;
+	font-size: 5rem;
+	line-height: 1;
+	color: #05040426;
+}
+
+.background {
+	position: absolute;
+	top: -100px;
+	right: 100px;
+	z-index: -10;
+}

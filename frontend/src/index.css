@@ -1,0 +1,96 @@
+:root {
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	/* line-height: 1.5; */
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #5a5442;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+@font-face {
+	font-family: "Playfair Display";
+	src: url("/src/assets/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	/* margin: 0; */
+	/* display: flex;
+	justify-content: flex-end; */
+	min-width: 320px;
+	height: 100vh;
+}
+
+h1 {
+	font-size: 15rem;
+	transform: rotate(90deg);
+	position: absolute;
+	top: 20rem;
+	left: -25rem;
+	color: #4d4737;
+	user-select: none;
+}
+
+a {
+	background-color: #b2b3b0;
+	padding: 0.5rem 1rem;
+	color: #4d4737;
+	text-decoration: none;
+	width: 150px;
+	display: inline-block;
+	text-align: center;
+	margin: 1rem 1rem 1rem auto;
+	z-index: 100;
+	font-weight: 600;
+}
+
+a:hover {
+	color: #ffa13f;
+}
+
+.AdminPage h3 {
+	text-align: center;
+	font-size: 2rem;
+	margin: 1rem;
+	font-family: "Playfair Display";
+}
+
+.AdminPage form {
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem 15vw;
+}
+
+.AdminPage form input,
+.AdminPage form select,
+textarea {
+	margin: 0.5rem 0;
+	padding: 0.5rem;
+	background-color: #4d4737;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type="file"] {
+	cursor: pointer;
+}
+button {
+	width: 100px;
+	padding: 0.3rem 0.5rem;
+	cursor: pointer;
+}
+button:hover {
+	cursor: pointer;
+}

@@ -1,0 +1,32 @@
+.Entry {
+	background-color: #9c937a;
+	text-align: center;
+	padding: 1rem 2rem;
+	position: relative;
+	overflow: hidden;
+	height: 450px;
+}
+
+.Entry img {
+	object-fit: 100%;
+	object-position: center;
+	position: absolute;
+	z-index: -10;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.Entry h5 {
+	font-size: 1.9rem;
+	margin: 0 2.5rem;
+	translate: 0 -30px;
+
+	font-family: "Playfair Display";
+}
+
+.Entry a {
+	font-size: 0.8rem;
+	color: white;
+}
