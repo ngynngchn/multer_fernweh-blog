@@ -6,3 +6,22 @@
 	display: flex;
 	flex-direction: column;
 }
+
+nav {
+	z-index: 100;
+	display: flex;
+	gap: 1rem;
+	justify-content: flex-end;
+	margin: 1rem;
+}
+
+@media (max-width: 1280px) {
+	.App {
+		padding: 0 10vw;
+	}
+}
+/* @media (min-width: 500px) {
+	.App {
+		padding: 0 0vw;
+	}
+} */

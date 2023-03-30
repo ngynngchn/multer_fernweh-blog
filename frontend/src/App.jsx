@@ -1,26 +1,30 @@
-import { useState } from "react";
 import "./App.css";
 
 //import packages
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 //import components
 import Home from "./pages/Home.jsx";
-import AdminPage from "./pages/AdminPage";
-import EntryPage from "./pages/EntryPage";
+import AdminPage from "./pages/AdminPage.jsx";
+import EntryPage from "./pages/EntryPage/EntryPage.jsx";
 
-function App() {
+function App({}) {
+	const navigate = useNavigate();
+
 	return (
 		<div className="App">
-			<BrowserRouter>
+			<nav>
+				{window.location.pathname !== "/" && ( // check if path is home
+					<button onClick={() => navigate(-1)}>Go Back</button>
+				)}
 				<Link to="/addEntry">ADMIN</Link>
-				<h1>Fernweh</h1>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/addEntry" element={<AdminPage />} />
-					<Route path="/:blogentry" element={<EntryPage />} />
-				</Routes>
-			</BrowserRouter>
+			</nav>
+			<h1>Fernweh</h1>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/addEntry" element={<AdminPage />} />
+				<Route path="/:blogentry" element={<EntryPage />} />
+			</Routes>
 		</div>
 	);
 }

@@ -1,8 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 function AdminPage() {
 	const [entries, setEntries] = useState();
+	const [posts, setPosts] = useState([]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -20,17 +22,50 @@ function AdminPage() {
 			});
 	}
 
+	useEffect(() => {
+		fetch("http://localhost:7777/api/blogEntries")
+			.then((response) => response.json())
+			.then((data) => setPosts(data));
+	}, []);
+
+	function removePost(e) {
+		const id = e.target.value;
+		fetch(`http://localhost:7777/api/blogEntries/${id}`, {
+			method: "DELETE",
+		})
+			.then((response) => {
+				console.log(response.json());
+				// if (response.ok) {
+				// 	console.log(`Object with id ${id} has been deleted`);
+				// } else {
+				// 	console.log(
+				// 		`Error deleting post with id ${id} : ${response.statusText}`
+				// 	);
+				// }
+			})
+			.catch((err) => {
+				console.log(console.error(`Error deleting post with id ${id}: ${err}`));
+			});
+	}
+
 	return (
 		<div className="AdminPage">
 			<h3>Create a Blog Entry</h3>
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="title" id="title" placeholder="Your title" />
+				<input
+					type="text"
+					name="title"
+					id="title"
+					placeholder="Your title"
+					required
+				/>
 				<select name="category" id="category">
 					<option value="Travel">Travel</option>
 					<option value="Food">Food</option>
 				</select>
-				<input type="file" name="image" id="image" />
+				<input type="file" name="image" id="image" required />
 				<textarea
+					required
 					name="content"
 					id="content"
 					cols="30"
@@ -38,6 +73,32 @@ function AdminPage() {
 					placeholder="Your text ..."></textarea>
 				<button type="submit">Publish</button>
 			</form>
+
+			<h3>Edit your posts</h3>
+			<section className="currentPosts">
+				{posts &&
+					posts.map((post) => (
+						<div className="post" key={uuidv4()}>
+							<img
+								src={`http://localhost:7777/images/${post.image}`}
+								alt={post.title}
+								width="150px"
+								height="150px"
+							/>
+							<article>
+								<h4>{post.id.toString().padStart(2, 0)}</h4>
+								<h6>{post.title}</h6>
+							</article>
+
+							<article className="actions">
+								<button value={post.id} onClick={removePost}>
+									Remove
+								</button>
+								<button value={post.id}>Edit</button>
+							</article>
+						</div>
+					))}
+			</section>
 		</div>
 	);
 }

@@ -1,0 +1,52 @@
+.EntryPage {
+	display: grid;
+	gap: 5vw;
+	margin-bottom: 5vw;
+}
+
+.EntryPage h2 {
+	text-align: center;
+	margin: 1rem;
+}
+
+.EntryPage img {
+	width: 100%;
+	height: 500px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.EntryPage main {
+	background-color: #9c937a;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 10vw;
+}
+
+.EntryPage h5 {
+	font-size: 2rem;
+}
+
+.EntryPage p {
+	/* text-align: center; */
+	text-justify: distribute;
+	line-height: 1.5;
+}
+@media (min-width: 1280px) {
+	.EntryPage {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: "title title" "img content";
+	}
+	.EntryPage main {
+		padding: 2rem 5vw;
+	}
+	.EntryPage h2 {
+		grid-area: title;
+	}
+
+	.EntryPage img {
+		height: 100%;
+	}
+}

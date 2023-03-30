@@ -12,6 +12,8 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+
+	--primary: #ffa13f;
 }
 
 @font-face {
@@ -44,20 +46,18 @@ h1 {
 }
 
 a {
-	background-color: #b2b3b0;
+	display: inline-block;
+	width: 100px;
 	padding: 0.5rem 1rem;
+	background-color: #b2b3b0;
 	color: #4d4737;
 	text-decoration: none;
-	width: 150px;
-	display: inline-block;
 	text-align: center;
-	margin: 1rem 1rem 1rem auto;
-	z-index: 100;
 	font-weight: 600;
 }
 
 a:hover {
-	color: #ffa13f;
+	color: var(--primary);
 }
 
 .AdminPage h3 {
@@ -81,6 +81,38 @@ textarea {
 	background-color: #4d4737;
 	border: none;
 	border-radius: 3px;
+	font-family: inherit;
+}
+
+.AdminPage .currentPosts {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 0 15vw;
+}
+
+.AdminPage .currentPosts .post {
+	background-color: #9c937a;
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 1rem;
+}
+.AdminPage .currentPosts .post img {
+	object-fit: cover;
+}
+
+.AdminPage .currentPosts .post .actions {
+	margin: 1rem;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.AdminPage .currentPosts .post .actions button {
+	height: fit-content;
+	width: 80px;
 }
 
 input[type="file"] {
@@ -91,6 +123,28 @@ button {
 	padding: 0.3rem 0.5rem;
 	cursor: pointer;
 }
+
 button:hover {
 	cursor: pointer;
+}
+
+h5,
+h2,
+h6 {
+	font-family: "Playfair Display";
+	text-align: center;
+}
+
+h5 {
+	translate: 0 -30px;
+}
+
+h2 span {
+	color: #ffa13f;
+}
+
+h6 {
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	text-align: left;
 }

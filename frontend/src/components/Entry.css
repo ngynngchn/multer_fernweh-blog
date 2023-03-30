@@ -1,32 +1,39 @@
 .Entry {
-	background-color: #9c937a;
-	text-align: center;
-	padding: 1rem 2rem;
 	position: relative;
-	overflow: hidden;
+	padding: 1rem 2rem;
 	height: 450px;
+	text-align: center;
+	overflow: hidden;
+	background-color: #9c937a;
+	transition: background-color 0.3s ease-in-out;
+}
+.Entry:hover {
+	background-color: transparent;
 }
 
 .Entry img {
-	object-fit: 100%;
-	object-position: center;
 	position: absolute;
+	translate: -50% 0;
 	z-index: -10;
 	top: 0;
-	left: 0;
 	bottom: 0;
-	right: 0;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
 .Entry h5 {
 	font-size: 1.9rem;
 	margin: 0 2.5rem;
-	translate: 0 -30px;
-
-	font-family: "Playfair Display";
 }
 
 .Entry a {
+	position: absolute;
+	bottom: 1rem;
+	left: 50%;
+	translate: -50% 0;
 	font-size: 0.8rem;
 	color: white;
 }
