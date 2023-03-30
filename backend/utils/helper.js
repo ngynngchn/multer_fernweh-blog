@@ -14,6 +14,23 @@ export function writeEntry(data) {
 		});
 	});
 }
+export function writeDeletedEntries(data) {
+	// returning a promise to handle asynchronous operation
+	return new Promise((resolve, reject) => {
+		fs.writeFile(
+			"./deletedEntries.json",
+			JSON.stringify(data, null, 2),
+			(err) => {
+				// if there's an error, reject the promise with the error object
+				if (err) reject(err);
+				// if successful, resolve the promise with a success message
+				else {
+					resolve("Writing blog entry was successful");
+				}
+			}
+		);
+	});
+}
 
 // function to read the blogEntries.json file
 export function readFile() {

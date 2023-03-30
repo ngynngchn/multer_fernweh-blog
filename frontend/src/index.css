@@ -28,9 +28,6 @@
 }
 
 body {
-	/* margin: 0; */
-	/* display: flex;
-	justify-content: flex-end; */
 	min-width: 320px;
 	height: 100vh;
 }
@@ -58,61 +55,6 @@ a {
 
 a:hover {
 	color: var(--primary);
-}
-
-.AdminPage h3 {
-	text-align: center;
-	font-size: 2rem;
-	margin: 1rem;
-	font-family: "Playfair Display";
-}
-
-.AdminPage form {
-	display: flex;
-	flex-direction: column;
-	margin: 0.5rem 15vw;
-}
-
-.AdminPage form input,
-.AdminPage form select,
-textarea {
-	margin: 0.5rem 0;
-	padding: 0.5rem;
-	background-color: #4d4737;
-	border: none;
-	border-radius: 3px;
-	font-family: inherit;
-}
-
-.AdminPage .currentPosts {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin: 0 15vw;
-}
-
-.AdminPage .currentPosts .post {
-	background-color: #9c937a;
-	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
-	gap: 1rem;
-}
-.AdminPage .currentPosts .post img {
-	object-fit: cover;
-}
-
-.AdminPage .currentPosts .post .actions {
-	margin: 1rem;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-	flex-wrap: wrap;
-	gap: 1rem;
-}
-
-.AdminPage .currentPosts .post .actions button {
-	height: fit-content;
-	width: 80px;
 }
 
 input[type="file"] {
@@ -147,4 +89,10 @@ h6 {
 	font-size: 1rem;
 	margin: 0.5rem 0;
 	text-align: left;
+}
+
+@media (max-width: 700px) {
+	h1 {
+		z-index: -100;
+	}
 }

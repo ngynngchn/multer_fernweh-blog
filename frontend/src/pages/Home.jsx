@@ -27,7 +27,6 @@ function Home() {
 				setEntries(data);
 			});
 	}, []);
-	console.log(entries);
 	return (
 		<div className="Home">
 			<img

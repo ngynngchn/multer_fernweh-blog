@@ -5,8 +5,8 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 
 //import components
 import Home from "./pages/Home.jsx";
-import AdminPage from "./pages/AdminPage.jsx";
-import EntryPage from "./pages/EntryPage/EntryPage.jsx";
+import AdminPage from "./pages/adminpage/AdminPage.jsx";
+import EntryPage from "./pages/entrypage/EntryPage.jsx";
 
 function App({}) {
 	const navigate = useNavigate();
