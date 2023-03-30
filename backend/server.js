@@ -100,20 +100,22 @@ server.delete("/api/blogEntries/:id", (request, response) => {
 	// -1 means undefined when using findIndex()
 	if (index !== -1) {
 		data.splice(index, 1);
-		fs.writeFile(
-			"./blogEntries.json",
-			JSON.stringify(data, null, 2),
-			(err, data) => {
-				if (err) {
-					response.status(500).send("Error writing to file");
-				} else {
-					const updatedData = JSON.parse(data);
-					response.send(updatedData, `Object with id ${id} has been deleted`);
-				}
+		fs.writeFile("./blogEntries.json", JSON.stringify(data, null, 2), (err) => {
+			if (err) {
+				response.status(500).send("Error writing to file");
+			} else {
+				fs.readFile("./blogEntries.json", (err, data) => {
+					if (err) {
+						response.status(500).send("Error reading file");
+					} else {
+						const updatedData = JSON.parse(data);
+						response.send(updatedData);
+					}
+				});
 			}
-		);
+		});
 	} else {
-		response.status(404).send(`Object with id ${id}not found`);
+		response.status(404).send(`Object with id ${id} not found`);
 	}
 });
 

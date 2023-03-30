@@ -34,15 +34,16 @@ function AdminPage() {
 			method: "DELETE",
 		})
 			.then((response) => {
-				console.log(response.json());
-				// if (response.ok) {
-				// 	console.log(`Object with id ${id} has been deleted`);
-				// } else {
-				// 	console.log(
-				// 		`Error deleting post with id ${id} : ${response.statusText}`
-				// 	);
-				// }
+				if (response.ok) {
+					console.log(`Object with id ${id} has been deleted`);
+					return response.json();
+				} else {
+					console.log(
+						`Error deleting post with id ${id} : ${response.statusText}`
+					);
+				}
 			})
+			.then((updatedData) => setPosts(updatedData))
 			.catch((err) => {
 				console.log(console.error(`Error deleting post with id ${id}: ${err}`));
 			});
